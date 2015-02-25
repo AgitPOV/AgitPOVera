@@ -246,6 +246,7 @@ void povDisplay(boolean wait) {
 void hallInterrupt() {
 
   povDoIt = true;
+  // Restart
   _povArrayIndex = _povArraySize-1;
   povInterval = max((millis() - povTimeStamp),2)-1;
   povTimeStamp = millis() ;
