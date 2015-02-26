@@ -1,0 +1,23 @@
+
+
+##############################################################
+
+agitpovera.name=Agit POVera (ATmega168, Internal 8Mhz)
+
+agitpovera.upload.protocol=arduino
+agitpovera.upload.maximum_size=14336
+agitpovera.upload.speed=19200
+
+agitpovera.bootloader.low_fuses=0xe2
+agitpovera.bootloader.high_fuses=0xde
+agitpovera.bootloader.extended_fuses=0x00
+agitpovera.bootloader.path=atmega168
+agitpovera.bootloader.file=AgitPOVera_Arduino_168_8mhz.hex
+agitpovera.bootloader.unlock_bits=0x3F
+agitpovera.bootloader.lock_bits=0x0F
+
+agitpovera.build.mcu=atmega168
+agitpovera.build.f_cpu=8000000L
+agitpovera.build.core=arduino:arduino
+agitpovera.build.variant=arduino:standard
+
