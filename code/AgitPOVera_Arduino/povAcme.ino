@@ -142,7 +142,7 @@ int _povArraySize;
 
 unsigned long povIntervalColumns = 3300;
 
-int _povColumnWidth = 6;
+int _povColumnWidth = 1;
 
 volatile unsigned long povInterval = 1100;
 volatile unsigned long povTimeStamp;
@@ -219,21 +219,23 @@ void povDisplay(boolean wait) {
   }
   povDoIt = false;
 
-   povIntervalColumns = povInterval  * _povColumnWidth ; 
-   povIntervalColumns = min(povIntervalColumns,6600);
+  
+   //povIntervalColumns = povIntervalColumns;
   
   _povArrayIndex = _povArraySize-1;
   while ( _povArrayIndex >= 0 ) {
     int b = _povArray[_povArrayIndex];
+     _povArrayIndex--;
     
     for (int k=0; k<12; k++) digitalWrite(povLedPins[k], bitRead(~b,k)); 
+    
     #ifdef COYOTE_SLOW_DEBUG
       delay(100);
     #else
       delayMicroseconds(povIntervalColumns); //delayMicroseconds(POV_US_BETWEEN_COLUMNS);
     #endif
     
-    _povArrayIndex--;
+   
   }
 
 
@@ -250,6 +252,7 @@ void hallInterrupt() {
   _povArrayIndex = _povArraySize-1;
   povInterval = max((millis() - povTimeStamp),2)-1;
   povTimeStamp = millis() ;
+  povIntervalColumns = povInterval  * _povColumnWidth ; 
 
 }
 
