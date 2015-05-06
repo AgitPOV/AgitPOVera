@@ -4,6 +4,8 @@
 
 agitpovera.name=Agit POVera (ATmega168, Internal 8Mhz)
 
+agitpovera.build.board=AVR_AGITPOVERA
+
 agitpovera.upload.protocol=arduino
 agitpovera.upload.maximum_size=14336
 agitpovera.upload.speed=19200
